@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
-  const cartCount = useSelector((state) => state.cart.length);
+  const cart = useSelector((state) => state.cart);
   return (
     <div className={styles.NavbarContainer}>
       <NavLink to="/" className={styles.logo}>
@@ -15,7 +15,7 @@ const Navbar = () => {
 
       <NavLink to="cart" className={styles.cartBtn}>
         <ShoppingCartIcon sx={{ fontSize: 40 }} />
-        <p className={styles.cartCount}>{cartCount ? "" : { cartCount }}</p>
+        <p className={styles.cartCount}>{cart.length}</p>
       </NavLink>
     </div>
   );
